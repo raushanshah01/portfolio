@@ -13,6 +13,6 @@ A portfolio showcasing my projects, skills, and experience.
   
 ## Live Demo
 
-You can try the 8-Puzzle Solver here:
+view my personal portfolio for more projects:
 
-[8-Puzzle Solver Live Demo](https://portfolio-won3.vercel.app/)
+[👨‍💻 Raushan Kumar Portfolio](https://portfolio-won3.vercel.app/)
