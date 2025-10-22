@@ -33,6 +33,7 @@ nav {
     justify-content: space-around;
     align-items: center;
     height: 60px;
+    position: relative; /* Needed for absolute positioning of mobile menu */
 }
 
 nav ul {
@@ -55,6 +56,17 @@ nav ul li a:hover {
     font-size: 1.01rem;
 }
 
+/* Hamburger button (Desktop: hidden) */
+.hamburger {
+    display: none; 
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
 /* Hide Header on Scroll */
 .hidden {
     transform: translateY(-100%);
@@ -67,6 +79,7 @@ nav ul li a:hover {
     align-items: center;
     margin: 80px 0;
     height: 580px;
+    padding-top: 60px; /* Account for fixed header on desktop */
 }
 
 .home > div {
@@ -84,6 +97,7 @@ nav ul li a:hover {
 .rightsection img {
     width: 500px;
     height: 500px;
+    object-fit: cover;
 }
 
 /* Typography */
@@ -104,6 +118,7 @@ nav ul li a:hover {
     max-width: 80vw;
     margin: auto;
     height: 80vh;
+    padding-top: 60px;
 }
 
 .about h1 {
@@ -125,16 +140,55 @@ main hr {
     margin: 20px 80px;
 }
 
-/* Footer */
+/* Footer (Base) */
+/* --- Footer Styling --- */
 footer {
     background-color: #0e0e1a;
-    height: 100px;
+    min-height: 120px; /* Increased min-height for padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px; /* Added margin for separation */
+    padding: 20px 10px;
+    text-align: center;
 }
 
-.footer {
-    display: flex;
-    margin: 23px;
+.footer-content {
+    max-width: 900px;
+    width: 100%;
 }
+
+.footer-content p {
+    margin: 10px 0; /* Vertical spacing between lines */
+    color: rgb(170, 170, 170); /* Subtle gray for text */
+    font-size: 14px;
+}
+
+.footer-interests {
+    font-weight: 500;
+    /* Use the accent color for the bold text (Interests) */
+    color: rgb(165, 110, 216); 
+    padding-bottom: 5px;
+}
+
+.footer-credits a {
+    color: crimson; /* Retained link color */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* --- Responsive Footer Adjustments (Modify your existing media query block) --- */
+@media (max-width: 768px) {
+    footer {
+        padding: 15px 10px;
+        margin-top: 30px;
+    }
+    
+    .footer-content p {
+        font-size: 12px;
+    }
+}
+
 
 /* Buttons */
 .leftsection .btn {
@@ -232,23 +286,6 @@ section .title::after {
     color: white;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .about-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .aboutleft img {
-        max-width: 300px;
-    }
-
-    .aboutright {
-        width: 90%;
-        text-align: justify;
-    }
-}
-
 
 #element1{
     font-size: 24px;
@@ -284,6 +321,7 @@ section .title::after {
 
 .skill{
     margin-top: 250px;
+    padding-top: 60px;
 }
 
 section .title1 {
@@ -322,6 +360,8 @@ section .title1::before {
     justify-content: center;
     flex-wrap: wrap;
     gap: 15px;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .skill-item {
@@ -346,6 +386,7 @@ section .title1::before {
     width: 100px;
     height: 107px;
     margin-bottom: 6px;
+    object-fit: contain;
 }
 
 .skill-item p {
@@ -358,12 +399,7 @@ section .title1::before {
 .projects {
     text-align: center;
     padding: 50px 0;
-}
-
-.title1 {
-    font-size: 36px;
-    font-weight: bold;
-    margin-bottom: 20px;
+    padding-top: 60px;
 }
 
 .project-container {
@@ -426,24 +462,11 @@ section .title1::before {
     background-color: #bdbeef;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .project-container {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
 /* Education Section */
 .education {
     text-align: center;
     padding: 50px 0;
-}
-
-.title {
-    font-size: 26px;
-    font-weight: bold;
-    margin-bottom: 40px;
+    padding-top: 60px;
 }
 
 .education-container {
@@ -460,6 +483,7 @@ section .title1::before {
     align-items: center;
     gap: 20px;
     position: relative;
+    text-align: left; /* Ensure text is left-aligned */
 }
 
 /* Year Badge */
@@ -474,36 +498,25 @@ section .title1::before {
 
 /* Education Details */
 .education-details h2 {
-    font-size: 13px;
+    font-size: 18px; /* Increased for readability */
     font-weight: bold;
     margin: 5px 0;
+    color: white;
 }
 
 .education-details p {
-    font-size: 10px;
-    color: #555;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .education-container {
-        grid-template-columns: 1fr;
-        text-align: left;
-    }
+    font-size: 16px; /* Increased for readability */
+    color: rgb(170, 170, 170); /* Adjusted for better contrast */
 }
 
 .contact {
     text-align: center;
     padding: 50px 0;
-}
-
-.title {
-    font-size: 36px;
-    font-weight: bold;
+    padding-top: 60px;
 }
 
 .subtitle {
-    color: #d32f2f;
+    color: crimson; /* Retaining the original accent color for the subtitle */
     font-size: 18px;
     margin-bottom: 30px;
 }
@@ -515,6 +528,7 @@ section .title1::before {
     max-width: 1000px;
     margin: auto;
     gap: 50px;
+    padding: 0 20px;
 }
 
 /* Left Side: Contact Info */
@@ -525,11 +539,12 @@ section .title1::before {
 
 .contact-info h2 {
     font-size: 24px;
+    color: white;
 }
 
 .contact-info p {
     font-size: 16px;
-    color: #666;
+    color: rgb(170, 170, 170); /* Adjusted for better contrast */
 }
 
 /* Info Items */
@@ -541,12 +556,13 @@ section .title1::before {
 }
 
 .info-item i {
-    color: #d32f2f;
+    color: crimson;
     font-size: 22px;
 }
 
 .info-item span {
     font-weight: bold;
+    color: white;
 }
 
 /* Right Side: Contact Form */
@@ -572,15 +588,12 @@ textarea {
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 16px;
+    background-color: #1e2167; /* Dark input background */
+    color: white;
 }
 
-textarea {
-    height: 100px;
-    resize: none;
-}
-
-.btn {
-    background-color: #d32f2f;
+.contact-form .btn {
+    background-color: crimson;
     color: #fff;
     border: none;
     padding: 12px;
@@ -588,31 +601,247 @@ textarea {
     border-radius: 5px;
     font-size: 16px;
     margin-top: 10px;
+    text-decoration: none; /* Override a tag style */
 }
 
-.btn:hover {
+.contact-form .btn:hover {
     background-color: #b71c1c;
 }
 
-/* Footer */
-footer {
-    background: #111;
-    color: #fff;
-    text-align: center;
-    padding: 15px 0;
-    font-size: 14px;
-    margin-top: 30px;
+/* Footer (link styling) */
+footer a{
+    color: crimson;
+    text-decoration: none;
 }
-
-
 
 .info-item div #add{
     font-size: 16px;
-    color: #666;
+    color: rgb(170, 170, 170);
     margin-left: 34px;
 }
 
-footer a{
-    color: #d32f2f;
-    text-decoration: none;
+/* =======================================
+   RESPONSIVE STYLES (Mobile First) 
+   ======================================= */
+@media (max-width: 768px) {
+    
+    /* 1. GLOBAL & HEADER */
+    main hr {
+        margin: 20px 20px;
+    }
+
+    /* Show hamburger, hide desktop menu */
+    nav {
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+    
+    .hamburger {
+        display: block;
+    }
+
+    .right {
+        /* Mobile menu setup: hidden by default */
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Below the header */
+        left: 0;
+        width: 100%;
+        background-color: rgb(18, 18, 62);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+        padding: 10px 0;
+        z-index: 999;
+    }
+
+    .right.active {
+        display: flex; /* Show when active */
+    }
+
+    nav ul li {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    /* 2. HOME SECTION */
+    .home {
+        flex-direction: column; /* Stack sections */
+        height: auto;
+        padding-top: 100px;
+        margin: 0;
+    }
+
+    .home > div {
+        width: 90%; 
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .leftsection {
+        font-size: 2rem; 
+    }
+
+    .rightsection {
+        width: 80%;
+        text-align: center;
+    }
+
+    .rightsection img {
+        width: 100%;
+        max-width: 300px; 
+        height: auto;
+    }
+    
+    .leftsection .btn {
+        margin-left: 0;
+    }
+
+    /* 3. ABOUT SECTION */
+    .about {
+        max-width: 90vw;
+        height: auto;
+        padding-top: 50px;
+        margin-bottom: 50px;
+    }
+    
+    .about-container {
+        flex-direction: column; /* Stack image and text */
+        height: auto;
+        max-width: 100%;
+    }
+
+    .aboutleft img {
+        max-width: 100%;
+        width: 300px;
+    }
+
+    .aboutright {
+        width: 90%;
+        text-align: center; /* Center content on mobile */
+    }
+    
+    .aboutright p {
+        text-align: justify;
+    }
+    
+    .about .aboutright a {
+        margin-left: 0; /* Center button */
+    }
+    
+    /* 4. SKILLS SECTION */
+    .skill {
+        margin-top: 50px;
+        padding: 0 10px;
+    }
+    
+    .skill-category h2 {
+        margin-left: 0;
+        text-align: center;
+        font-size: 22px;
+    }
+    
+    .skill-box {
+        gap: 10px;
+    }
+    
+    .skill-item {
+        width: 90px; 
+        height: 110px;
+    }
+
+    .skill-item img {
+        width: 70px;
+        height: 70px;
+    }
+    
+    /* 5. PROJECTS SECTION */
+    .project-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .project-card {
+        width: 90%;
+        max-width: 350px;
+    }
+
+    /* 6. EDUCATION SECTION */
+    .education-container {
+        grid-template-columns: 1fr; /* Single column */
+        gap: 20px;
+        max-width: 90%;
+    }
+    
+    .education-item {
+        /* Keep as flex but remove alignment for better flow */
+        align-items: flex-start;
+    }
+    
+    .education-details h2 {
+        font-size: 16px; 
+    }
+
+    .education-details p {
+        font-size: 14px; 
+    }
+
+    /* 7. CONTACT SECTION */
+    .contact-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .contact-info,
+    .contact-form {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .contact-info p {
+        color: rgb(170, 170, 170); /* Adjusted for contrast */
+    }
+
+    .info-item {
+        justify-content: flex-start; /* Re-align info items */
+        margin-left: 10px;
+    }
+    
+    .info-item div #add {
+        margin-left: 0;
+    }
+    
+    .input-group {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    /* 8. FOOTER */
+    footer {
+        height: auto;
+        padding: 20px 10px;
+    }
+    
+    footer p {
+        font-size: 12px;
+    }
+}
+
+/* Further decrease font size for very small screens */
+@media (max-width: 480px) {
+    .leftsection {
+        font-size: 1.8rem;
+    }
+    
+    #element {
+        font-size: 24px !important;
+    }
+    
+    .aboutright .text b, #element1 {
+        font-size: 20px;
+    }
+    
+    .aboutright p {
+        font-size: 16px;
+    }
 }
