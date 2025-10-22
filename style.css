@@ -177,18 +177,6 @@ footer {
     font-weight: bold;
 }
 
-/* --- Responsive Footer Adjustments (Modify your existing media query block) --- */
-@media (max-width: 768px) {
-    footer {
-        padding: 15px 10px;
-        margin-top: 30px;
-    }
-    
-    .footer-content p {
-        font-size: 12px;
-    }
-}
-
 
 /* Buttons */
 .leftsection .btn {
@@ -634,6 +622,8 @@ footer a{
     nav {
         justify-content: space-between;
         padding: 0 20px;
+        /* Ensure vertical alignment */
+        align-items: center; 
     }
     
     .hamburger {
@@ -643,7 +633,6 @@ footer a{
     .right {
         /* Mobile menu setup: hidden by default */
         display: none;
-        flex-direction: column;
         position: absolute;
         top: 60px; /* Below the header */
         left: 0;
@@ -655,13 +644,29 @@ footer a{
     }
 
     .right.active {
-        display: flex; /* Show when active */
+        display: block; /* Use block to contain the vertical list */
     }
 
-    nav ul li {
-        margin: 10px 0;
-        text-align: center;
+    /* --- FIX START: Corrected Mobile Menu Stacking --- */
+    nav ul {
+        flex-direction: column; /* Force the list of links to stack vertically */
+        width: 100%;
+        padding: 0;
+        align-items: stretch; /* Stretch links to full width */
     }
+    
+    nav ul li {
+        margin: 0; /* Remove horizontal margin */
+        padding: 10px 0; /* Add vertical padding for spacing */
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Optional separator */
+    }
+    
+    nav ul li:last-child {
+        border-bottom: none;
+    }
+    /* --- FIX END --- */
+
 
     /* 2. HOME SECTION */
     .home {
@@ -823,6 +828,11 @@ footer a{
     }
     
     footer p {
+        font-size: 12px;
+    }
+    
+    /* Responsive Footer Adjustments (Included again for completeness) */
+    .footer-content p {
         font-size: 12px;
     }
 }
